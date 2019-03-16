@@ -5,11 +5,24 @@ import (
 	"io/ioutil"
 
 	"github.com/sdk_go/src/api"
+	"github.com/sdk_go/src/model"
 )
 
-func createPrefences() {
-	params := "{\n    \"items\": [\n        {\n        \"title\": \"Dummy Item\",\n        \"description\": \"Multicolor Item\",\n        \"quantity\": 1,\n        \"currency_id\": \"ARS\",\n        \"unit_price\": 10.0\n        }\n    ]\n}"
-	res := api.CreatePreferences(params)
+//CreatePrefences asd
+func CreatePrefences() {
+
+	var preference model.Preference
+	preference.LoadPreference()
+
+	//fmt.Println(string(preferenceJson))
+
+	/*m := make(map[string]interface{})
+	err := json.Unmarshal(preferenceJson, &m)
+	if err != nil {
+		log.Fatal(err)
+	}*/
+
+	res := api.CreatePreferences(&preference)
 	defer res.Body.Close()
 	body, _ := ioutil.ReadAll(res.Body)
 	fmt.Println(string(body))

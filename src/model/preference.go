@@ -1,10 +1,4 @@
-package main
-
-import (
-	"encoding/json"
-	"fmt"
-	"log"
-)
+package model
 
 //API Preference Doc: https://api.mercadopago.com/checkout/preferences#options
 
@@ -89,7 +83,7 @@ type BackURLs struct {
 
 //Preference allows you to set up, during the payment process, all the item information, any accepted means of payment and many other options
 type Preference struct {
-	Items               *Items          `json:"items"`                //Object
+	Items               []*Items        `json:"items"`                //Object
 	Payer               *Payer          `json:"payer"`                //Object
 	PaymentMethods      *PaymentMethods `json:"payment_methods"`      //Object
 	Shipments           *Shipments      `json:"shipments"`            //Object
@@ -114,26 +108,20 @@ type Preference struct {
 	BinaryMode          bool            `json:"binary_mode"`          //Boolean
 }
 
-func main() {
+//LoadPreference make something
+func (p *Preference) LoadPreference() {
+	items := make([]*Items, 0)
 
-	preference := Preference{
-		Items: &Items{
-			Title:       "Dummy Item",
-			Description: "Multicolor Item",
-			Quantity:    1,
-			CurrencyID:  "ARS",
-			UnitPrice:   10.0,
-		},
+	item := Items{
+		Title:       "Dummy Item",
+		Description: "Multicolor Item",
+		Quantity:    1,
+		CurrencyID:  "ARS",
+		UnitPrice:   10.0,
 	}
 
-	preferenceJson, _ := json.Marshal(preference)
-	//fmt.Println(string(preferenceJson))
+	items = append(items, &item)
 
-	m := make(map[string]interface{})
-	err := json.Unmarshal(preferenceJson, &m)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(m["items"])
+	p.Items = items
 
 }

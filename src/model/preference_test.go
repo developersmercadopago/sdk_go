@@ -1,4 +1,4 @@
-package main
+package model
 
 import (
 	"encoding/json"
@@ -22,7 +22,7 @@ func Test_Preference(t *testing.T) {
 	
 	items := `"items":{"id":"","title":"Dummy Item","description":"Multicolor Item","picture_url":"","category_id":"","quantity":1,"currency_id":"ARS","unit_price":10}`
 
-	if preferenceJson["items"]
+	if preferenceJson["items"]["title"]
 
 
 }
