@@ -1,4 +1,4 @@
-package jsonconfig
+package util
 
 import (
 	"io"
@@ -35,6 +35,6 @@ func Load(configFile string, p Parser) {
 
 	// Parse the config
 	if err := p.ParseJSON(jsonBytes); err != nil {
-		log.Fatalln("Could not parse %q: %v", configFile, err)
+		log.Fatalln("Could not parse")
 	}
 }
