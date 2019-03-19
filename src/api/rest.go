@@ -2,7 +2,6 @@ package api
 
 import (
 	"bytes"
-	"fmt"
 	"net/http"
 )
 
@@ -21,8 +20,6 @@ func ExecGET(url string) *http.Response {
 
 // ExecPOST exec API call
 func ExecPOST(url string, params []byte) *http.Response {
-
-	fmt.Println(string(params))
 
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(params))
 	req.Header.Add("content-type", "application/json")

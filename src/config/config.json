@@ -1,5 +1,9 @@
 {
     "api": "https://api.mercadopago.com",
-    "access_token": "123",
-    "public_key": "TEST-4961993466003990-031608-b104e0a70bbfd62cad19894288efefbf-415908242"
+    "access_token": "TEST-4961993466003990-031608-b104e0a70bbfd62cad19894288efefbf-415908242",
+    "public_key": "TEST-4961993466003990-031608-b104e0a70bbfd62cad19894288efefbf-415908242",
+    
+    "data_base_user": "root",
+    "data_base_pass": "root",
+    "data_base_name": "blueprint"
 }

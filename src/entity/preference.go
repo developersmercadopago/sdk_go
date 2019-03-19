@@ -1,4 +1,4 @@
-package model
+package entity
 
 //API Preference Doc: https://api.mercadopago.com/checkout/preferences#options
 
